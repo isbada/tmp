@@ -150,7 +150,8 @@ void book_search()
 	else
 	{
 		printf("\nResult list:\n", result.length);
-		for (int i = 0; i < result.length; i++)
+		int i;
+		for (i = 0; i < result.length; i++)
 		{
 			printf("No.%d\ntitle:%s\nauthors:%s\nyear:%d\ncopies:%d\n\n", i + 1, result.array[i].title, result.array[i].authors, result.array[i].year, result.array[i].copies);
 			free(result.array[i].title);
