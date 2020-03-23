@@ -1,4 +1,4 @@
-#include "BOOK MANAGMENT.h"
+#include "BOOK_MANAGMENT.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -8,12 +8,13 @@ int store_books(FILE * file)
 {
 	if (file)
 	{
-		for (unsigned int i = 0; i < book_list.length; i++)
+		unsigned int i = 0;
+		for (i = 0; i < book_list.length; i++)
 		{
 			fprintf_s(file, "&%s;%s %d %d\n", book_list.array[i].title, book_list.array[i].authors, book_list.array[i].year, book_list.array[i].copies);
 		}
 		fputc('#', file);
-		for (int i = 0; i < MAX_NUM_BOOK; i++)
+		for (i = 0; i < MAX_NUM_BOOK; i++)
 		{
 			free(book_list.array[i].authors);
 			free(book_list.array[i].title);
@@ -70,7 +71,8 @@ int add_book(struct Book book)
 	else
 	{
 		int id = -1;
-		for (unsigned int i = 0; i < book_list.length; i++)
+		unsigned int i = 0;
+		for (i = 0; i < book_list.length; i++)
 		{
 			if (0 == strcmp(book_list.array[i].title, book.title) &&
 				0 == strcmp(book_list.array[i].authors, book.authors) &&
@@ -99,7 +101,8 @@ int add_book(struct Book book)
 int remove_book(struct Book book)
 {
 	int id = -1;
-	for (unsigned int i = 0; i < book_list.length; i++)
+	unsigned int i = 0;
+	for (i = 0; i < book_list.length; i++)
 	{
 		if (0 == strcmp(book_list.array[i].title, book.title) &&
 			0 == strcmp(book_list.array[i].authors, book.authors) &&
@@ -128,7 +131,8 @@ struct BookArray find_book_by_title(const char * title)
 	struct BookArray result;
 	result.array = (struct Book*)malloc(sizeof(struct Book) * MAX_NUM_BOOK);
 	result.length = 0;
-	for (unsigned int i = 0; i < book_list.length; i++)
+	unsigned int i = 0;
+	for (i = 0; i < book_list.length; i++)
 	{
 		if (0 == strcmp(book_list.array[i].title, title))
 		{
@@ -155,7 +159,8 @@ struct BookArray find_book_by_author(const char * author)
 	struct BookArray result;
 	result.array = (struct Book*)malloc(sizeof(struct Book) * MAX_NUM_BOOK);
 	result.length = 0;
-	for (unsigned int i = 0; i < book_list.length; i++)
+	unsigned int i = 0;
+	for (i = 0; i < book_list.length; i++)
 	{
 		if (strstr(book_list.array[i].authors, author))
 		{
@@ -182,7 +187,8 @@ struct BookArray find_book_by_year(unsigned int year)
 	struct BookArray result;
 	result.array = (struct Book*)malloc(sizeof(struct Book) * MAX_NUM_BOOK);
 	result.length = 0;
-	for (unsigned int i = 0; i < book_list.length; i++)
+	unsigned int i = 0;
+	for (i = 0; i < book_list.length; i++)
 	{
 		if (year == book_list.array[i].year)
 		{

@@ -9,7 +9,8 @@ int store_users(FILE * file)
 {
 	if (file)
 	{
-		for (unsigned int i = 0; i < user_list.length; i++)
+		unsigned int i = 0;
+		for (i = 0; i < user_list.length; i++)
 		{
 			fprintf_s(file, "%s %s %d\n", user_list.array[i].username, user_list.array[i].password, user_list.array[i].type);
 		}
@@ -23,7 +24,8 @@ int load_users(FILE * file)
 {
 	user_list.array = (struct User*)malloc(sizeof(struct User) * MAX_MUN_USER);
 	user_list.length = 0;
-	for (int i = 0; i < MAX_MUN_USER; i++)
+	unsigned int i = 0;
+	for (i = 0; i < MAX_MUN_USER; i++)
 	{
 		memset(user_list.array[i].username, 0, sizeof(user_list.array[i].username));
 		memset(user_list.array[i].password, 0, sizeof(user_list.array[i].password));
@@ -85,11 +87,13 @@ int user_login(struct User user)
 		is_login = 1;
 		return user_list.array[index].type;
 	}
+	return -1;
 }
 
 int search_user(const char * user_name)
 {
-	for (int i = 0; i < user_list.length; i++)
+	unsigned int i = 0;
+	for (i = 0; i < user_list.length; i++)
 	{
 		if (0 == strcmp(user_name, user_list.array[i].username))
 		{
