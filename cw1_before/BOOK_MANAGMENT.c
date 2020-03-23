@@ -29,7 +29,8 @@ int load_books(FILE * file)
 {
 	book_list.array = (struct Book*)malloc(sizeof(struct Book) * MAX_NUM_BOOK);
 	book_list.length = 0;
-	for (int i = 0; i < MAX_NUM_BOOK; i++)
+	unsigned int i=0;
+	for (i = 0; i < MAX_NUM_BOOK; i++)
 	{
 		book_list.array[i].year = 0;
 		book_list.array[i].copies = 0;
