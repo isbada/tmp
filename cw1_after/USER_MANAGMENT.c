@@ -12,7 +12,7 @@ int store_users(FILE * file)
 		unsigned int i = 0;
 		for (i = 0; i < user_list.length; i++)
 		{
-			fprintf_s(file, "%s %s %d\n", user_list.array[i].username, user_list.array[i].password, user_list.array[i].type);
+			fprintf(file, "%s %s %d\n", user_list.array[i].username, user_list.array[i].password, user_list.array[i].type);
 		}
 		free(user_list.array);
 		return 0;

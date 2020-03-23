@@ -11,7 +11,7 @@ int store_books(FILE * file)
 		unsigned int i = 0;
 		for (i = 0; i < book_list.length; i++)
 		{
-			fprintf_s(file, "&%s;%s %d %d\n", book_list.array[i].title, book_list.array[i].authors, book_list.array[i].year, book_list.array[i].copies);
+			fprintf(file, "&%s;%s %d %d\n", book_list.array[i].title, book_list.array[i].authors, book_list.array[i].year, book_list.array[i].copies);
 		}
 		fputc('#', file);
 		for (i = 0; i < MAX_NUM_BOOK; i++)
@@ -195,8 +195,8 @@ struct BookArray find_book_by_year(unsigned int year)
 			int id = result.length;
 			result.array[id].year = book_list.array[i].year;
 			result.array[id].copies = book_list.array[i].copies;
-			strcpy_s(result.array[id].authors, strlen(book_list.array[i].authors), book_list.array[i].authors);
-			strcpy_s(result.array[id].title, strlen(book_list.array[i].title), book_list.array[i].title);
+			strcpy(result.array[id].authors, strlen(book_list.array[i].authors), book_list.array[i].authors);
+			strcpy(result.array[id].title, strlen(book_list.array[i].title), book_list.array[i].title);
 			result.length++;
 		}
 	}
