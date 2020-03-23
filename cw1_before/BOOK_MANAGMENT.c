@@ -195,8 +195,8 @@ struct BookArray find_book_by_year(unsigned int year)
 			int id = result.length;
 			result.array[id].year = book_list.array[i].year;
 			result.array[id].copies = book_list.array[i].copies;
-			strcpy(result.array[id].authors, strlen(book_list.array[i].authors), book_list.array[i].authors);
-			strcpy(result.array[id].title, strlen(book_list.array[i].title), book_list.array[i].title);
+			strcpy(strlen(book_list.array[i].authors), book_list.array[i].authors);
+			strcpy(strlen(book_list.array[i].title), book_list.array[i].title);
 			result.length++;
 		}
 	}
